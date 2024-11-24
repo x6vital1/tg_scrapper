@@ -2,6 +2,10 @@ version: '3'
 services:
   parser:
     build: .
+    image: parser:latest
+    container_name: tg_channel_parser
+    stdin_open: true
+    tty: true
     volumes:
       - .:/app
     restart: always

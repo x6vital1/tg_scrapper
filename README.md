@@ -47,6 +47,10 @@ Build and start the containers.
     or
     docker compose up --build
     ```
+When the container is up you can use terminal for working with the scraper.
+```
+docker exec -it tg_channel_parser bash
+```
 #### Usage
 
 Once the containers are up, you can interact with the scraper. Here are a few examples of commands you can run inside the container:
