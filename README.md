@@ -58,6 +58,6 @@ poetry run python parser.py
 **Flags to configure the scraper:**
 1. `--mode` - `interval` or `parse_limit`. Default is `interval`.
 2. `--interval` - Interval in seconds for periodic parsing. Default is 60.
-3. `--limit` - Limit of messages to parse. Default is 10.
+3. `--limit` - Limit of messages to parse. Default is 1.
 4. `--refresh` - Clear parsed data in Google Sheets.
 
