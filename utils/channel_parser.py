@@ -1,17 +1,20 @@
-from telethon.sync import TelegramClient
 import asyncio
 import re
 from typing import List
+import pytz
+
+from telethon.sync import TelegramClient
 
 
 class TelegramChannelParser:
     def __init__(self, api_id: int, api_hash: str, session_name: str, channels: List[str], interval: int,
-                 limit: int = 1):
+                 limit: int = 1, time_zone: str = 'Europe/Kiev'):
         self.api_id = api_id
         self.api_hash = api_hash
         self.channels = channels
         self.interval = interval
         self.limit = limit
+        self.time_zone = time_zone
         self.session_name = session_name
         self.client = TelegramClient(self.session_name, self.api_id, self.api_hash)
 
@@ -27,11 +30,12 @@ class TelegramChannelParser:
                 if message.message:
                     keywords = self.extract_keywords(message.text)
                     if keywords:
+                        local_time = message.date.astimezone(pytz.timezone(self.time_zone))
                         parsed_data.append({
                             'channel': channel,
                             'keywords': keywords,
                             'post_url': f"{channel}/{message.id}",
-                            'date': message.date
+                            'date': local_time
                         })
             return parsed_data
         except Exception as e:

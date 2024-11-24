@@ -8,6 +8,7 @@ sheet_handler = GoogleSheetsHelper(credentials_file='credentials.json')
 def main():
     try:
         session_name = input("Please enter the session name: ")
+        time_zone = input("Please enter the time zone example (Europe/Kiev): ")
         args = parse_args()
 
         env_loader = EnvLoader()
@@ -21,7 +22,8 @@ def main():
             limit=args.limit,
             sheet_handler=sheet_handler,
             session_name=session_name,
-            sheet_id=sheet_id
+            sheet_id=sheet_id,
+            time_zone=time_zone
         )
 
         if args.refresh:
