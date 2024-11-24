@@ -19,11 +19,6 @@ git clone https://github.com/x6vital1/tg_scrapper.git
 
 cd tg_scrapper
 ```
-## Install `poetry` and create a virtual environment
-```sh
-pip install poetry
-poetry install
-```
 
 ## Environment Variables
 
