@@ -15,14 +15,14 @@
 
 ## Clone the Repository
 ```sh
-git clone https://github.com/DemetrSin/TeamOtzovik.git
+git clone https://github.com/x6vital1/tg_scrapper.git
 
-cd TeamOtzovik
+cd tg_scrapper
 ```
 ## Install `poetry` and create a virtual environment
 ```sh
 pip install poetry
-poetry init
+poetry install
 ```
 
 ## Environment Variables
@@ -31,9 +31,13 @@ Create a `.env` file in the root directory of the project and add the following 
 
 ```bash
 API_ID=telegram_api_id
-API_HASH=telegram_api_id
+API_HASH=telegram_api_hash
 SHEET_ID=google_sheets_id
 ```
+
+**How to get `telegram_api_id` and `telegram_api_hash`:**
+1. Follow to the [Telegram App manager] (https://my.telegram.org/apps)
+2. Login to your Telegram account
 
 #### Building and Running the Docker Containers
 Build and start the containers.
@@ -43,3 +47,17 @@ Build and start the containers.
     or
     docker compose up --build
     ```
+#### Usage
+
+Once the containers are up, you can interact with the scraper. Here are a few examples of commands you can run inside the container:
+
+```bash
+# Run the scraper
+poetry run python parser.py
+```
+**Flags to configure the scraper:**
+1. `--mode` - `interval` or `parse_limit`. Default is `interval`.
+2. `--interval` - Interval in seconds for periodic parsing. Default is 60.
+3. `--limit` - Limit of messages to parse. Default is 10.
+4. `--refresh` - Clear parsed data in Google Sheets.
+
