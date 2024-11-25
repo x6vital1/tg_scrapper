@@ -63,7 +63,7 @@ Build and start the containers.
 #### Usage
 When the container is up you can use terminal for working with the scraper.
 ```
-docker exec -it tg_channel_parser bash
+docker run -it parser python parser.py
 ```
 **Flags to configure the scraper:**
 1. **-sn, --session_name**: Session name (default: "session_name")

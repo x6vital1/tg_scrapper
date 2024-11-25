@@ -1,30 +1,19 @@
 FROM python:3.11-slim
 
-
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-
-RUN pip3 install poetry==1.8.4
-
+RUN pip install poetry
 
 WORKDIR /app
 
+COPY poetry.lock pyproject.toml /app/
+
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi
 
 COPY . /app
 
-
-RUN poetry install --no-dev --no-interaction
-
-
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 
-
 USER appuser
-
-
-RUN chmod +x entrypoint.sh
-
-ENTRYPOINT ["/app/entrypoint.sh"]
-
-CMD ["poetry", "run", "python", "parser.py"]

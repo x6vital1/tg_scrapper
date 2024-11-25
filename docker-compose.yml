@@ -4,8 +4,6 @@ services:
     build: .
     image: parser:latest
     container_name: tg_channel_parser
-    stdin_open: true
-    tty: true
     volumes:
       - .:/app
       - ./config.json:/app/config.json
