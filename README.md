@@ -72,7 +72,7 @@ docker-compose start # Start the containers
 **Flags to configure the scraper:**
 1. **-sn, --session_name**: Session name (default: "session_name")
 2. **-tz, --time_zone**: Time zone (default: "Europe/Kiev")
-3. **-M, --parse_mode**: Mode (default: "interval")
+3. **-M, --parse_mode**: Mode interval or parse_limit (default: "interval")
 4. **-F, --frequency**: Interval (default: 30)
 5. **--limit**: Limit (default: 1)
 6. **--refresh**: Clear parsed data in Google Sheets (default: True)

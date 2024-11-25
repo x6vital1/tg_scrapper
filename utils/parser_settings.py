@@ -59,7 +59,7 @@ class Settings:
     def print_config(self):
         print(f"{Fore.CYAN}Session name:{Style.BRIGHT} {Fore.GREEN}{self.session_name}")
         print(f"{Fore.CYAN}Time zone:{Style.BRIGHT} {Fore.GREEN}{self.time_zone}")
-        print(f"{Fore.CYAN}Interval:{Style.BRIGHT} {Fore.GREEN}{self.frequency}")
+        print(f"{Fore.CYAN}Interval:{Style.BRIGHT} {Fore.GREEN}{self.frequency}") if self.parse_mode == 'interval' else None
         print(f"{Fore.CYAN}Limit:{Style.BRIGHT} {Fore.GREEN}{self.limit}")
         print(f"{Fore.CYAN}Parse mode:{Style.BRIGHT} {Fore.GREEN}{self.parse_mode}")
         print(f"{Fore.CYAN}Refresh:{Style.BRIGHT} {Fore.GREEN}{self.refresh}")
@@ -80,6 +80,8 @@ class Settings:
             sheet_id=self.sheet_id,
             time_zone=self.time_zone
         )
+        if self.refresh:
+            parser.sheet_handler.clear_parsed_data(self.sheet_id)
         if self.parse_mode == 'interval':
             asyncio.run(parser.run_interval())
         elif self.parse_mode == 'parse_limit':
@@ -105,7 +107,6 @@ class PeriodicParser(TelegramChannelParser):
     async def run_interval(self):
         while True:
             try:
-
                 data = await self.parse_channels()
                 if data:
                     self.save_data(data)
