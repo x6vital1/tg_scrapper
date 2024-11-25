@@ -41,7 +41,7 @@ cd tg_scrapper
 ```
 
 **How to get `telegram_api_id` and `telegram_api_hash`:**
-1. Follow to the [Telegram App manager] (https://my.telegram.org/apps)
+1. Follow to the [Telegram App manager](https://my.telegram.org/apps)
 2. Login to your Telegram account
 
 **How row to get `your_google_sheet_id`:**
