@@ -55,16 +55,20 @@ cd tg_scrapper
 Build and start the containers.
 * using standalone tool **docker-compose**:
     ```
-    docker-compose up --build
+    docker-compose up --build -d
     or
-    docker compose up --build
+    docker compose up --build -d
     ```
 
 #### Usage
 When the container is up you can use terminal for working with the scraper.
 ```
-docker run -it parser python parser.py
+docker-compose exec parser python parser.py # You cant add flags here if it needed
+
+docker-compose stop # Stop the containers
+docker-compose start # Start the containers
 ```
+#### Flags
 **Flags to configure the scraper:**
 1. **-sn, --session_name**: Session name (default: "session_name")
 2. **-tz, --time_zone**: Time zone (default: "Europe/Kiev")

@@ -6,5 +6,5 @@ services:
     container_name: tg_channel_parser
     volumes:
       - .:/app
-      - ./config.json:/app/config.json
     restart: always
+    tty: true
