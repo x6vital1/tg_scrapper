@@ -24,7 +24,7 @@ class Settings:
         self.session_name = self.config_file.get('session_name', 'default')
         self.time_zone = self.config_file.get('time_zone', 'Europe/Kiev')
         self.parse_mode = self.config_file.get('parse_mode', 'interval')
-        self.frequency = self.config_file.get('frequency', 60)
+        self.frequency = self.config_file.get('frequency', 30)
         self.limit = self.config_file.get('limit', 1)
         self.refresh = self.config_file.get('refresh', False)
 
