@@ -27,4 +27,4 @@ RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-CMD ["bash"]
+CMD ["poetry", "run", "python", "parser.py"]

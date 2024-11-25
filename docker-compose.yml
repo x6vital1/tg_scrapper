@@ -8,4 +8,5 @@ services:
     tty: true
     volumes:
       - .:/app
+      - ./config.json:/app/config.json
     restart: always

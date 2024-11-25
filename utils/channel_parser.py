@@ -8,7 +8,7 @@ from telethon.sync import TelegramClient
 
 class TelegramChannelParser:
     def __init__(self, api_id: int, api_hash: str, session_name: str, channels: List[str], interval: int,
-                 limit: int = 1, time_zone: str = 'Europe/Kiev'):
+                 limit: int, time_zone: str = 'Europe/Kiev'):
         self.api_id = api_id
         self.api_hash = api_hash
         self.channels = channels
