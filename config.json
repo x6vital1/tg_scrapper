@@ -5,7 +5,7 @@
   "api": {
     "api_id": 12334,
     "api_hash": "your_api_hash",
-    "sheet_id": "your_sheet_id",
+    "sheet_id": "your_sheet_id"
   },
   "interval": 30,
   "limit": 1,
