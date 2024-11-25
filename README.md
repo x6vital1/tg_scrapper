@@ -59,14 +59,11 @@ Build and start the containers.
     or
     docker compose up --build
     ```
+
+#### Usage
 When the container is up you can use terminal for working with the scraper.
 ```
 docker exec -it tg_channel_parser bash
-```
-#### Usage
-```bash
-# Run the scraper
-poetry run python parser.py
 ```
 **Flags to configure the scraper:**
 1. **-sn, --session_name**: Session name (default: "session_name")
